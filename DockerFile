@@ -1,0 +1,15 @@
+
+# Imagen base con JDK 17
+FROM openjdk:17-jdk-alpine
+
+# Nombre del archivo JAR
+ARG JAR_FILE=target/encomiendas_api-0.0.1-SNAPSHOT.jar
+
+# Copiar el JAR en el contenedor
+COPY ${JAR_FILE} app.jar
+
+# Exponer el puerto configurado
+EXPOSE 8082
+
+# Comando para ejecutar la aplicación
+ENTRYPOINT ["java", "-jar", "/app.jar"]
